@@ -6,6 +6,7 @@
 //
 
 import ComposableArchitecture
+import Foundation
 
 /// https://pointfreeco.github.io/swift-composable-architecture/main/documentation/composablearchitecture/reducer()/
 /// https://pointfreeco.github.io/swift-composable-architecture/main/documentation/composablearchitecture/reducers#Using-the-Reducer-macro
@@ -18,6 +19,8 @@ struct CounterFeature {
     // Composable Architecture의 @Observable 버전으로 값 타입에 맞춰져 있다.
       struct State {
           var count = 0
+          var fact: String?
+          var isLoading = false
       }
       
     /// 사용자가 Feature에서 수행할 수 있는 모든 동작을 포함하는 타입
@@ -25,6 +28,7 @@ struct CounterFeature {
           // 사용자가 UI에서 실제로 수행하는 동작을 따라 Action 케이스를 이름 짓는 것이 가장 좋다.
           // 예를 들어, `incrementCount`와 같은 논리를 수행하려는 동작보다는 `incrementButtonTapped`처럼 명명하는 것이 좋다.
           case decrementButtonTapped
+          case factButtonTapped
           case incrementButtonTapped
       }
     
@@ -37,6 +41,24 @@ struct CounterFeature {
               // 따라서 실행할 효과가 없음을 나타내기 위해 특별한 .none 값을 반환할 수 있습니다.
           case .decrementButtonTapped:
               state.count -= 1
+              state.fact = nil
+              return .none
+              
+          case .factButtonTapped:
+              state.fact = nil
+              state.isLoading = true
+              
+              // 어떻게 부작용을 수행할 수 있을까요?
+              // numbersapi.com을 사용하여 주의 현재 카운트에 대한 사실을 가져올 것입니다.
+              // 리듀서에서 직접 URLSession을 사용하여 비동기 작업을 수행할 수 있으면 좋겠지만, 안타깝게도 이는 허용되지 않습니다.
+              let (data, _) = try await URLSession.shared
+                  .data(from: URL(string: "http://numbersapi.com/\(state.count)")!)
+              // 🛑 'async' call in a function that does not support concurrency
+              // 🛑 Errors thrown from here are not handled
+              
+              state.fact = String(decoding: data, as: UTF8.self)
+              state.isLoading = false
+              
               return .none
               
           case .incrementButtonTapped:
