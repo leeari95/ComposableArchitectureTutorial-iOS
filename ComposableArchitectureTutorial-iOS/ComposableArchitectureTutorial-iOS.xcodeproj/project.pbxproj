@@ -16,6 +16,7 @@
 		02BC02062BF72B8600677351 /* ComposableArchitectureTutorial_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC02052BF72B8600677351 /* ComposableArchitectureTutorial_iOSUITestsLaunchTests.swift */; };
 		02BC02142BF72BF700677351 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 02BC02132BF72BF700677351 /* ComposableArchitecture */; };
 		02BC02162BF72C7200677351 /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC02152BF72C7200677351 /* CounterFeature.swift */; };
+		02BC02182BF7301200677351 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC02172BF7301200677351 /* CounterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		02BC02032BF72B8600677351 /* ComposableArchitectureTutorial_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableArchitectureTutorial_iOSUITests.swift; sourceTree = "<group>"; };
 		02BC02052BF72B8600677351 /* ComposableArchitectureTutorial_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableArchitectureTutorial_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		02BC02152BF72C7200677351 /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
+		02BC02172BF7301200677351 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				02BC01E82BF72B8300677351 /* ComposableArchitectureTutorial_iOSApp.swift */,
 				02BC02152BF72C7200677351 /* CounterFeature.swift */,
+				02BC02172BF7301200677351 /* CounterView.swift */,
 				02BC01EA2BF72B8300677351 /* ContentView.swift */,
 				02BC01EC2BF72B8500677351 /* Assets.xcassets */,
 				02BC01EE2BF72B8500677351 /* Preview Content */,
@@ -271,6 +274,7 @@
 				02BC02162BF72C7200677351 /* CounterFeature.swift in Sources */,
 				02BC01EB2BF72B8300677351 /* ContentView.swift in Sources */,
 				02BC01E92BF72B8300677351 /* ComposableArchitectureTutorial_iOSApp.swift in Sources */,
+				02BC02182BF7301200677351 /* CounterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
