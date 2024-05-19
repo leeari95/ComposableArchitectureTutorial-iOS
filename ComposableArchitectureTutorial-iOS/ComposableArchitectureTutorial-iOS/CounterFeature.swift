@@ -29,6 +29,7 @@ struct CounterFeature {
           // 예를 들어, `incrementCount`와 같은 논리를 수행하려는 동작보다는 `incrementButtonTapped`처럼 명명하는 것이 좋다.
           case decrementButtonTapped
           case factButtonTapped
+          case factResponse(String)
           case incrementButtonTapped
       }
     
@@ -47,22 +48,27 @@ struct CounterFeature {
           case .factButtonTapped:
               state.fact = nil
               state.isLoading = true
+              return .run { [count = state.count] send in
+                  // ✅ 여기에서 비동기 작업을 수행하고 작업을 시스템으로 다시 보냅니다.
+                  
+                  // 그러나 네트워크에서 데이터를 가져온 후 이펙트의 state.fact를 변경할 수는 없습니다.
+                  // 이는 컴파일러에 의해 엄격하게 적용되는데, 전송 가능한 클로저는 인아웃 상태를 캡처할 수 없기 때문입니다.
+                  // 이것은 라이브러리가 reducer가 수행하는 멋지고 단순하며 순수한 상태 변형을 지저분하고 복잡한 이펙트로부터 분리하는 방법을 보여줍니다.
+                  let (data, _) = try await URLSession.shared
+                      .data(from: URL(string: "http://numbersapi.com/\(count))")!)
+                  print(data)
+                  let fact = String(decoding: data, as: UTF8.self)
+                  await send(.factResponse(fact))
+              }
               
-              // 어떻게 부작용을 수행할 수 있을까요?
-              // numbersapi.com을 사용하여 주의 현재 카운트에 대한 사실을 가져올 것입니다.
-              // 리듀서에서 직접 URLSession을 사용하여 비동기 작업을 수행할 수 있으면 좋겠지만, 안타깝게도 이는 허용되지 않습니다.
-              let (data, _) = try await URLSession.shared
-                  .data(from: URL(string: "http://numbersapi.com/\(state.count)")!)
-              // 🛑 'async' call in a function that does not support concurrency
-              // 🛑 Errors thrown from here are not handled
-              
-              state.fact = String(decoding: data, as: UTF8.self)
-              state.isLoading = false
-              
-              return .none
+          case let .factResponse(fact):
+            state.fact = fact
+            state.isLoading = false
+            return .none
               
           case .incrementButtonTapped:
               state.count += 1
+              state.fact = nil
               return .none
           }
         }

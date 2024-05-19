@@ -49,6 +49,7 @@
 		02BC02052BF72B8600677351 /* ComposableArchitectureTutorial_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableArchitectureTutorial_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		02BC02152BF72C7200677351 /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 		02BC02172BF7301200677351 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
+		02BC02192BF7370100677351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +101,7 @@
 		02BC01E72BF72B8300677351 /* ComposableArchitectureTutorial-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				02BC02192BF7370100677351 /* Info.plist */,
 				02BC01E82BF72B8300677351 /* ComposableArchitectureTutorial_iOSApp.swift */,
 				02BC02152BF72C7200677351 /* CounterFeature.swift */,
 				02BC02172BF7301200677351 /* CounterView.swift */,
@@ -440,6 +442,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ComposableArchitectureTutorial-iOS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ComposableArchitectureTutorial-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -468,6 +471,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ComposableArchitectureTutorial-iOS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ComposableArchitectureTutorial-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -38,24 +38,24 @@ struct CounterView: View {
               .background(Color.black.opacity(0.1))
               .cornerRadius(10)
               
-              // 첫 번째 기능에서 만든 카운터 기능에 새로운 기능을 추가해 보겠습니다. 버튼을 탭하면 현재 표시된 숫자에 대한 사실을 가져오기 위해 네트워크에 요청하는 버튼을 추가하겠습니다.
-              Button("Fact") {
-                store.send(.factButtonTapped)
-              }
-              .font(.largeTitle)
-              .padding()
-              .background(Color.black.opacity(0.1))
-              .cornerRadius(10)
-              
-              // 또한 하단에 ProgressView를 추가하여 fact을 load하는 동안 표시하고, 옵셔널을 언래핑하여 fact을 표시할 것입니다.
-              if store.isLoading {
-                ProgressView()
-              } else if let fact = store.fact {
-                Text(fact)
+          // 첫 번째 기능에서 만든 카운터 기능에 새로운 기능을 추가해 보겠습니다. 버튼을 탭하면 현재 표시된 숫자에 대한 사실을 가져오기 위해 네트워크에 요청하는 버튼을 추가하겠습니다.
+          }
+          Button("Fact") {
+              store.send(.factButtonTapped)
+          }
+          .font(.largeTitle)
+          .padding()
+          .background(Color.black.opacity(0.1))
+          .cornerRadius(10)
+          
+          // 또한 하단에 ProgressView를 추가하여 fact을 load하는 동안 표시하고, 옵셔널을 언래핑하여 fact을 표시할 것입니다.
+          if store.isLoading {
+              ProgressView()
+          } else if let fact = store.fact {
+              Text(fact)
                   .font(.largeTitle)
                   .multilineTextAlignment(.center)
                   .padding()
-              }
           }
       }
   }
