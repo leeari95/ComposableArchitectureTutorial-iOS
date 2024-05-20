@@ -38,8 +38,17 @@ struct CounterView: View {
               .background(Color.black.opacity(0.1))
               .cornerRadius(10)
               
-          // 첫 번째 기능에서 만든 카운터 기능에 새로운 기능을 추가해 보겠습니다. 버튼을 탭하면 현재 표시된 숫자에 대한 사실을 가져오기 위해 네트워크에 요청하는 버튼을 추가하겠습니다.
           }
+          
+          Button(store.isTimerRunning ? "Stop timer" : "Start timer") {
+            store.send(.toggleTimerButtonTapped)
+          }
+          .font(.largeTitle)
+          .padding()
+          .background(Color.black.opacity(0.1))
+          .cornerRadius(10)
+          
+          // 첫 번째 기능에서 만든 카운터 기능에 새로운 기능을 추가해 보겠습니다. 버튼을 탭하면 현재 표시된 숫자에 대한 사실을 가져오기 위해 네트워크에 요청하는 버튼을 추가하겠습니다.
           Button("Fact") {
               store.send(.factButtonTapped)
           }
