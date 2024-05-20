@@ -1,5 +1,5 @@
 //
-//  ComposableArchitectureTutorial_iOSTests.swift
+//  CounterFeatureTests.swift
 //  ComposableArchitectureTutorial-iOSTests
 //
 //  Created by Ari on 5/17/24.

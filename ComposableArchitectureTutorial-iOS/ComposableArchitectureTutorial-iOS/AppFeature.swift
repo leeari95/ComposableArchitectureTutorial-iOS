@@ -8,6 +8,33 @@
 import SwiftUI
 import ComposableArchitecture
 
+@Reducer
+struct AppFeature {
+    struct State: Equatable {
+        var tab1 = CounterFeature.State()
+        var tab2 = CounterFeature.State()
+    }
+
+    enum Action {
+        case tab1(CounterFeature.Action)
+        case tab2(CounterFeature.Action)
+    }
+    
+    var body: some ReducerOf<Self> {
+        // CounterFeature를 AppFeature로 구성하려면 Scope Reducer를 사용할 수 있습니다.
+        Scope(state: \.tab1, action: \.tab1) {
+            CounterFeature()
+        }
+        Scope(state: \.tab2, action: \.tab2) {
+            CounterFeature()
+        }
+        Reduce { state, action in
+            // 앱 기능의 핵심 로직
+            return .none
+        }
+    }
+}
+
 struct AppView: View {
     
     // 컴포저블 아키텍처에서는 여러 개의 독립된 스토어가 아닌 하나의 스토어에서 기능을 함께 구성하고 뷰를 제공하는 것을 선호합니다.
