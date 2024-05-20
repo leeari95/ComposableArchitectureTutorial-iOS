@@ -18,6 +18,7 @@
 		02BC02162BF72C7200677351 /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC02152BF72C7200677351 /* CounterFeature.swift */; };
 		02BC02182BF7301200677351 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC02172BF7301200677351 /* CounterView.swift */; };
 		02BC021B2BFC0F5600677351 /* NumberFactClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC021A2BFC0F5600677351 /* NumberFactClient.swift */; };
+		02BC021D2BFC160B00677351 /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC021C2BFC160B00677351 /* AppFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		02BC02172BF7301200677351 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		02BC02192BF7370100677351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		02BC021A2BFC0F5600677351 /* NumberFactClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactClient.swift; sourceTree = "<group>"; };
+		02BC021C2BFC160B00677351 /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				02BC01EC2BF72B8500677351 /* Assets.xcassets */,
 				02BC01EE2BF72B8500677351 /* Preview Content */,
 				02BC021A2BFC0F5600677351 /* NumberFactClient.swift */,
+				02BC021C2BFC160B00677351 /* AppFeature.swift */,
 			);
 			path = "ComposableArchitectureTutorial-iOS";
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02BC021D2BFC160B00677351 /* AppFeature.swift in Sources */,
 				02BC021B2BFC0F5600677351 /* NumberFactClient.swift in Sources */,
 				02BC02162BF72C7200677351 /* CounterFeature.swift in Sources */,
 				02BC01EB2BF72B8300677351 /* ContentView.swift in Sources */,
