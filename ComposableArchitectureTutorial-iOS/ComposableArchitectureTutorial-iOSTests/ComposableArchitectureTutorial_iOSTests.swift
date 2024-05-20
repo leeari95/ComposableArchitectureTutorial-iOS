@@ -42,4 +42,19 @@ final class CounterFeatureTests: XCTestCase {
           $0.isTimerRunning = false
         }
     }
+    
+    func testNumberFact() async {
+        let store = TestStore(initialState: CounterFeature.State()) {
+            CounterFeature()
+        }
+        
+        await store.send(.factButtonTapped) {
+            $0.isLoading = true
+        }
+        
+        await store.receive(\.factResponse, timeout: .seconds(1)) {
+            $0.isLoading = false
+            $0.fact = "???" // 서버에서 항상 다른 값을 반환하기 때문에 테스트가 항상 실패한다.
+        }
+    }
 }
