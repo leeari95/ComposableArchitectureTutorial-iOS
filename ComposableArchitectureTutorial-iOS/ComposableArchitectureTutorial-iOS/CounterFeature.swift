@@ -17,7 +17,7 @@ struct CounterFeature {
     @ObservableState
     // SwiftUI에서 State를 관찰하려는 경우에는 ObservableState() 매크로를 사용하여 주석을 달아야한다.
     // Composable Architecture의 @Observable 버전으로 값 타입에 맞춰져 있다.
-    struct State {
+    struct State: Equatable {
         var count = 0
         var fact: String?
         var isLoading = false
@@ -39,6 +39,8 @@ struct CounterFeature {
     
     enum CancelID { case timer }
     
+    @Dependency(\.continuousClock) var clock
+
     //  Reducer를 완전히 준수하려면 사용자가 수행한 액션을 받아 현재 상태를 다음 값으로 진화시키고, 기능이 외부 세계에서 실행하려는 모든 effect를 반환하는 Reduce 리듀서를 사용하여 `body` 프로퍼티를 구현해야 한다.
     //  이 작업은 거의 항상 들어오는 액션을 스위칭하여 수행해야 할 로직을 결정하는 것으로 시작되며, 상태는 `inout`으로 제공되므로 직접 변형을 수행할 수 있습니다.
     var body: some ReducerOf<Self> {
