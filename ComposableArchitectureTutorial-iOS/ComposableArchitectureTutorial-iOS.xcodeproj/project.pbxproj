@@ -20,6 +20,9 @@
 		02BC021B2BFC0F5600677351 /* NumberFactClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC021A2BFC0F5600677351 /* NumberFactClient.swift */; };
 		02BC021D2BFC160B00677351 /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC021C2BFC160B00677351 /* AppFeature.swift */; };
 		02BC021F2BFC196D00677351 /* AppFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC021E2BFC196D00677351 /* AppFeatureTests.swift */; };
+		02BC02212BFC1C2100677351 /* ContactsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC02202BFC1C2100677351 /* ContactsFeature.swift */; };
+		02BC02232BFC1C4100677351 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC02222BFC1C4100677351 /* ContactsView.swift */; };
+		02BC02272BFC1CBF00677351 /* AddContactFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC02262BFC1CBF00677351 /* AddContactFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		02BC021A2BFC0F5600677351 /* NumberFactClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactClient.swift; sourceTree = "<group>"; };
 		02BC021C2BFC160B00677351 /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 		02BC021E2BFC196D00677351 /* AppFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeatureTests.swift; sourceTree = "<group>"; };
+		02BC02202BFC1C2100677351 /* ContactsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFeature.swift; sourceTree = "<group>"; };
+		02BC02222BFC1C4100677351 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		02BC02262BFC1CBF00677351 /* AddContactFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +115,10 @@
 			children = (
 				02BC02192BF7370100677351 /* Info.plist */,
 				02BC01E82BF72B8300677351 /* ComposableArchitectureTutorial_iOSApp.swift */,
+				02BC02202BFC1C2100677351 /* ContactsFeature.swift */,
+				02BC02222BFC1C4100677351 /* ContactsView.swift */,
 				02BC02152BF72C7200677351 /* CounterFeature.swift */,
+				02BC02262BFC1CBF00677351 /* AddContactFeature.swift */,
 				02BC02172BF7301200677351 /* CounterView.swift */,
 				02BC01EA2BF72B8300677351 /* ContentView.swift */,
 				02BC01EC2BF72B8500677351 /* Assets.xcassets */,
@@ -283,11 +292,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				02BC021D2BFC160B00677351 /* AppFeature.swift in Sources */,
+				02BC02272BFC1CBF00677351 /* AddContactFeature.swift in Sources */,
 				02BC021B2BFC0F5600677351 /* NumberFactClient.swift in Sources */,
 				02BC02162BF72C7200677351 /* CounterFeature.swift in Sources */,
 				02BC01EB2BF72B8300677351 /* ContentView.swift in Sources */,
+				02BC02212BFC1C2100677351 /* ContactsFeature.swift in Sources */,
 				02BC01E92BF72B8300677351 /* ComposableArchitectureTutorial_iOSApp.swift in Sources */,
 				02BC02182BF7301200677351 /* CounterView.swift in Sources */,
+				02BC02232BFC1C4100677351 /* ContactsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
