@@ -35,20 +35,11 @@ struct ContactsFeature {
                   contact: Contact(id: UUID(), name: "")
                 )
                 return .none
-                
-            // AddContactFeature에서 'Cancel' 버튼을 누르면 해당 Feature를 해제하고 다른 작업을 수행하지 않으려 합니다.
-            // 이 작업은 추가 연락처 상태를 nil로 처리하면 됩니다.
-            case .addContact(.presented(.cancelButtonTapped)):
-              state.addContact = nil
-              return .none
-                
+
             // AddContactFeature 내에서 'Save' 버튼을 탭하면 해당 Feature를 해제할 뿐만 아니라
             // 새 연락처를 ContactsFeature.State에 보관된 연락처 모음에 추가하고 싶습니다.
-            case .addContact(.presented(.saveButtonTapped)):
-              guard let contact = state.addContact?.contact
-              else { return .none }
+            case let .addContact(.presented(.delegate(.saveContact(contact)))):
               state.contacts.append(contact)
-              state.addContact = nil
               return .none
                 
             case .addContact:

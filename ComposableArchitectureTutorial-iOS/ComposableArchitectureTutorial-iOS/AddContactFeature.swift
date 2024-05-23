@@ -17,17 +17,34 @@ struct AddContactFeature {
     }
     enum Action {
         case cancelButtonTapped
+        case delegate(Delegate)
         case saveButtonTapped
         case setName(String)
+        
+        /// 부모가 수신하고 해석할 수 있는 모든 Action을 설명합니다. 이를 통해 하위 기능이 부모 기능에 원하는 작업을 직접 전달할 수 있습니다.
+        enum Delegate: Equatable {
+          case saveContact(Contact)
+        }
+        
     }
+    
+    /// 이 값은 자식 기능이 부모 기능과 직접 접촉하지 않고도 스스로 dismiss할 수 있도록 하는 값입니다.
+    @Dependency(\.dismiss) var dismiss
+
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .cancelButtonTapped:
+                return .run { _ in await self.dismiss() }
+
+            case .delegate:
                 return .none
-                
+
             case .saveButtonTapped:
-                return .none
+                return .run { [contact = state.contact] send in
+                  await send(.delegate(.saveContact(contact)))
+                  await self.dismiss()
+                }
                 
             case let .setName(name):
                 state.contact.name = name
